@@ -1,0 +1,15 @@
+{% extends "base.j2" %}
+
+{% block content %}
+<h3>{{ user.username }}'s Page</h3>
+
+{% for post in user.posts %}
+    <div class="post">
+        <p>
+            {{ post.body }}<br>
+            <small>Posted on: {{ post.timestamp }}</small>
+        </p>
+    </div>
+{% endfor %}
+
+{% endblock %}

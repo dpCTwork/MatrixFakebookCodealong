@@ -1,0 +1,33 @@
+{% extends "base.j2" %}
+
+{% block content %}
+    <h1>Log In</h1>
+
+    <form action="" method="post">
+        {# form action attribute will determine where we submit the data to #}
+        {# leaving the form action blank will, by default, it will submit it to its current URL #}
+        {# So in our case, this will submit the data to the login route, which will submit it to the login function.
+        #}
+        {# This is what we want so we leave this blank. But we change the method from the default "GET" to "POST" #}
+    
+        {{ form.hidden_tag() }}
+        {# This is dependent on a SECRET_KEY so we need to add that #}
+        {# This will be added in the .env file #}
+    
+        <p>
+            {{ form.username.label }}
+            <br>
+            {{ form.username(size=32) }}
+        </p>
+        <p>
+            {{ form.password.label }}
+            <br>
+            {{ form.password(size=32) }}
+            {% for error in form.password.errors %}
+            <span class="err-msg">{{ error }}</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    
+{% endblock %}
