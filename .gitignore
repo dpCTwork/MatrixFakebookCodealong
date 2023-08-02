@@ -1,6 +1,6 @@
 __pycache__
 .DS_Store
 .vscode
-venv
-.env
-migrations
+# venv
+# .env
+# migrations
